@@ -6,6 +6,7 @@ app.get("/hello", (req, res) => {
   res.send("Hello from Render-deployed Express server!");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// Export app as a Vercel handler
+module.exports = (req, res) => {
+  app(req, res);
+};
